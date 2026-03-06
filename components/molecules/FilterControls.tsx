@@ -7,16 +7,11 @@ type Props = {
   threshold: number | "";
   setThreshold: (value: number | "") => void;
   reset: () => void;
-  
 };
 
-export default function FilterControls({
-  threshold,
-  setThreshold,
-  reset,
-}: Props) {
+export default function FilterControls({ threshold, setThreshold, reset }: Props) {
   return (
-    <div className="flex gap-4 mb-6">
+    <div className="flex gap-4">
       <Input value={threshold} onChange={setThreshold} />
       <Button label="Reset" onClick={reset} />
     </div>
