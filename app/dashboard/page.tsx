@@ -2,14 +2,16 @@
 
 import { useState } from "react";
 import { salesData } from "@/data/salesData";
+
 import FilterControls from "@/components/molecules/FilterControls";
 import BarSalesChart from "@/components/organisms/BarSalesChart";
 import LineSalesChart from "@/components/organisms/LineSalesChart";
 import PieSalesChart from "@/components/organisms/PieSalesChart";
 
 export default function Dashboard() {
-  const [chartType, setChartType] = useState("bar");
+
   const [threshold, setThreshold] = useState<number | "">("");
+  const [chartType, setChartType] = useState<"bar" | "line" | "pie">("bar");
 
   const filteredData =
     threshold === ""
@@ -19,7 +21,7 @@ export default function Dashboard() {
   const reset = () => setThreshold("");
 
   return (
-    <div className="p-10">
+    <div style={{ padding: "20px" }}>
 
       <h1>Sales Dashboard</h1>
 
@@ -29,17 +31,21 @@ export default function Dashboard() {
         reset={reset}
       />
 
-      <div className="flex gap-4 mt-4">
+      <div style={{ marginTop: "20px" }}>
         <button onClick={() => setChartType("bar")}>Bar Chart</button>
         <button onClick={() => setChartType("line")}>Line Chart</button>
         <button onClick={() => setChartType("pie")}>Pie Chart</button>
       </div>
 
-      <div className="mt-6">
+      <div style={{ marginTop: "30px" }}>
         {chartType === "bar" && <BarSalesChart data={filteredData} />}
         {chartType === "line" && <LineSalesChart data={filteredData} />}
         {chartType === "pie" && <PieSalesChart data={filteredData} />}
       </div>
+
+      <p style={{ marginTop: "40px" }}>
+        Data Source: Kaggle Superstore Dataset
+      </p>
 
     </div>
   );
