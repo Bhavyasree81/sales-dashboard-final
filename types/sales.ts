@@ -1,4 +1,8 @@
 export type Sales = {
-  year: number;
+  year?: number;
+  month: string;
   sales: number;
+  revenue: number;
+  orders: number;
+  region: string;
 };
