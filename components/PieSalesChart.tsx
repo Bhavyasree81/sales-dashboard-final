@@ -1,8 +1,9 @@
 "use client";
 
 import { PieChart, Pie, Tooltip, ResponsiveContainer } from "recharts";
+import type { Sales } from "../types/sales";
 
-export default function PieSalesChart({ data }: any) {
+export default function PieSalesChart({ data }: { data: Sales[] }) {
   return (
     <div className="w-full h-[300px]">
       <ResponsiveContainer width="100%" height="100%">

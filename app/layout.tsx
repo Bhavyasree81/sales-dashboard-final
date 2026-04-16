@@ -1,21 +1,15 @@
-import { ReactNode } from "react";
+import type { Metadata } from "next";
 import "./globals.css";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Sales Dashboard",
-  description: "Sales dashboard built with Next.js",
+  description: "Sales dashboard analytics app",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-gradient-to-br from-gray-50 to-gray-200">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

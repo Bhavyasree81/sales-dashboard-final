@@ -1,4 +1,4 @@
 export type Sales = {
-  year: string;
+  year: number;
   sales: number;
 };
